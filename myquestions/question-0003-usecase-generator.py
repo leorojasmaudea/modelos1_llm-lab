@@ -11,7 +11,7 @@ def generar_caso_de_uso_normalizar_datos_legados():
 
     # Calcular esperado
     df_expected = df_input.copy()
-    df_expected['fecha_raw'] = pd.to_鋸e_datetime(df_expected['fecha_raw'], format='%Y%m%d')
+    df_expected['fecha_raw'] = pd.to_datetime(df_expected['fecha_raw'], format='%Y%m%d')
     mapping = {1: 'Activo', 2: 'Inactivo', 3: 'Pendiente'}
     df_expected['estado_desc'] = df_expected['cod_estado'].map(lambda x: mapping.get(x, 'Error'))
     df_expected = df_expected.drop(columns=['cod_estado'])
