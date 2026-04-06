@@ -1,0 +1,15 @@
+El Problema:
+En la industria automotriz de alto rendimiento, es crucial identificar la base química de un lubricante para predecir su resistencia térmica. Las bases sintéticas como el PAO (Polialfaolefina) y el Éster tienen índices de viscosidad y puntos de inflamación superiores a los aceites minerales.
+
+Tu Misión:
+Escribe una función llamada `clasificar_base_lubricante` que:
+1. Reciba un diccionario con la llave 'muestras', cuyo valor es un DataFrame de pandas.
+2. El DataFrame tiene tres columnas: 'viscosity_index' (int), 'flash_point' (int) y 'pour_point' (int).
+3. La función debe:
+    - Utilizar un modelo de clasificación (puedes usar lógica de umbrales o un estimador de sklearn).
+    - Se clasifica como 'Sintético' si el 'viscosity_index' > 150 Y el 'flash_point' > 230.
+    - De lo contrario, se clasifica como 'Mineral'.
+4. La función debe retornar una lista de strings con las clasificaciones para cada fila.
+
+Ejemplo de entrada:
+{'muestras': pd.DataFrame({'viscosity_index': [160, 130], 'flash_point': [245, 210], 'pour_point': [-45, -20]})}

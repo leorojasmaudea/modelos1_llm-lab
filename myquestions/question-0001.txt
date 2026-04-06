@@ -1,0 +1,15 @@
+El Problema:
+En sistemas de inventario automatizados con lectores RFID (como el Zebra FX7500), las etiquetas reportan niveles de intensidad de señal (RSSI) que varían según la distancia y el entorno. Un problema común es distinguir entre etiquetas que están fijas en una estantería y etiquetas que están siendo movidas por un operario. Las etiquetas en movimiento presentan una varianza significativamente mayor en su RSSI y cambios bruscos en el ángulo de fase.
+
+Tu Misión:
+Escribe una función en Python llamada `clasificar_movimiento_rfid` que:
+1. Reciba como entrada un diccionario con una sola llave 'lecturas', cuyo valor es un DataFrame de pandas.
+2. El DataFrame contiene dos columnas: 'rssi' (float) y 'phase' (float), que representan una serie de lecturas de una misma etiqueta.
+3. La función debe:
+    - Extraer características estadísticas (media y varianza) de la columna 'rssi'.
+    - Utilizar un modelo de clasificación simple de sklearn (por ejemplo, un DecisionTreeClassifier o una lógica basada en umbrales entrenada) para determinar el estado.
+    - Para este ejercicio, se considera 'Moving' si la varianza del RSSI es superior a 8.0 o si el rango de la fase es superior a 0.5; de lo contrario, es 'Static'.
+4. La función debe retornar un string: 'Moving' o 'Static'.
+
+Ejemplo de entrada:
+{'lecturas': pd.DataFrame({'rssi': [-55, -58, -52, -60], 'phase': [0.1, 0.2, 0.1, 0.3]})}

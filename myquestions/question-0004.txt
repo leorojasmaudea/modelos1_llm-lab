@@ -1,0 +1,14 @@
+El Problema:
+En un "Smart Parking", los sensores de piso detectan presencia (1 o 0), pero a veces ocurren errores ("Ocupación Fantasma"): el sensor marca ocupado pero no hay un registro de pago activo en el sistema.
+
+Tu Misión:
+Escribe una función llamada `detectar_ocupacion_fantasma` que:
+1. Reciba un diccionario con dos llaves: 'sensor_data' (DataFrame con columnas 'celda_id' y 'estado_sensor') y 'pagos_activos' (DataFrame con columna 'celda_id').
+2. La función debe:
+    - Identificar las celdas donde el `estado_sensor` es 1 pero NO aparecen en el DataFrame `pagos_activos`.
+    - Retornar una lista con los 'celda_id' que presentan esta anomalía, ordenada de menor a mayor.
+
+Ejemplo de entrada:
+sensor_df = pd.DataFrame({'celda_id': [101, 102], 'estado_sensor': [1, 1]})
+pagos_df = pd.DataFrame({'celda_id': [101]})
+{'sensor_data': sensor_df, 'pagos_activos': pagos_df} -> Resultado: [102]

@@ -1,0 +1,15 @@
+El Problema:
+Al migrar datos de sistemas antiguos (VB6/Visual FoxPro), las fechas a menudo se almacenan en formatos inconsistentes o como strings ordinales, y los códigos de estado son numéricos. Es necesario normalizar estos datos para analítica moderna.
+
+Tu Misión:
+Escribe una función llamada `normalizar_datos_legados` que:
+1. Reciba un diccionario con la llave 'registros', que contiene un DataFrame.
+2. El DataFrame tiene dos columnas: 'fecha_raw' (string en formato YYYYMMDD) y 'cod_estado' (int).
+3. La función debe:
+    - Convertir 'fecha_raw' a objetos datetime de pandas.
+    - Crear una nueva columna 'estado_desc' mapeando los códigos: 1 -> 'Activo', 2 -> 'Inactivo', 3 -> 'Pendiente'. Cualquier otro código debe ser 'Error'.
+    - Eliminar la columna original 'cod_estado'.
+4. Retornar el DataFrame resultante.
+
+Ejemplo de entrada:
+{'registros': pd.DataFrame({'fecha_raw': ['20230101'], 'cod_estado': [1]})}
